@@ -16,5 +16,4 @@ Protocol:
 Binaries:
  - [ ] Implement basic server
  - [ ] Implement basic commandline client
- - [ ] Implement pluggable backend protocols for server
-        - [ ] [ZeroMQ](http://zeromq.org)
+ - [ ] Implement pluggable backend protocols for server starting with [ZeroMQ](http://zeromq.org)
