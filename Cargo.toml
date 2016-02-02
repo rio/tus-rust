@@ -1,4 +1,8 @@
 [package]
+authors = ["Rio Kierkels <riokierkels@gmail.com>"]
 name = "tus"
 version = "0.1.0"
-authors = ["Rio Kierkels <riokierkels@gmail.com>"]
+
+[dependencies]
+clap = "2.0.1"
+hyper = "0.7.2"
