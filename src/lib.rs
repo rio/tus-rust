@@ -3,6 +3,7 @@ extern crate hyper;
 use hyper::server::{Request, Response};
 use hyper::status::StatusCode;
 use hyper::method::Method;
+use hyper::header::Header;
 
 mod headers;
 use headers::TusVersion;
@@ -25,7 +26,7 @@ pub fn tus_handler(request: Request, mut response: Response) {
         // Check if the method is allowed
         *response.status_mut() = StatusCode::MethodNotAllowed;
 
-    } else if !utils::version_check(&request.headers) {
+    } else if request.method != Method::Options && !utils::version_check(&request.headers) {
         // Check if the version is supported
         response.headers_mut().set(TusVersion::new());
         *response.status_mut() = StatusCode::PreconditionFailed;
