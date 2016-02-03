@@ -23,7 +23,7 @@ fn main() {
                       .get_matches();
 
     let host = matches.value_of("host").unwrap_or("localhost");
-    let port = matches.value_of("port").unwrap_or("8888");
+    let port = matches.value_of("port").unwrap_or("4000");
 
     let bind_address = &*format!("{}:{}", host, port);
 
