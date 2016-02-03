@@ -25,7 +25,7 @@ mod tests {
 
     #[test]
     fn fail_version_check_missing_header() {
-        let mut headers = Headers::new();
+        let headers = Headers::new();
         assert!(!version_check(&headers))
     }
 

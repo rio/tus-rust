@@ -3,17 +3,12 @@ extern crate hyper;
 use hyper::server::{Request, Response};
 use hyper::status::StatusCode;
 use hyper::method::Method;
-use hyper::header::Header;
 
-mod headers;
 use headers::TusVersion;
 
 mod utils;
-
-// use hyper::header::{Headers, CacheControl, CacheDirective};
-// use hyper::uri::RequestUri;
-
-// use std::path::{Path, PathBuf};
+mod handlers;
+pub mod headers;
 
 pub fn tus_handler(request: Request, mut response: Response) {
     let log_string = format!("{remote_addr} | {version} | {method:<7} | {uri}",
@@ -34,10 +29,9 @@ pub fn tus_handler(request: Request, mut response: Response) {
     } else {
         // handle the method
         match request.method {
-            // Method::Head => handle_head_method(request, &mut response),
+            Method::Head => handlers::handle_head_method(request, &mut response),
             // Method::Patch => handle_patch_method(request, &mut response),
             // Method::Options => handle_options_method(&mut response),
-            Method::Head => println!("head"),
             Method::Patch => println!("patch"),
             Method::Options => println!("options"),
             _ => (),

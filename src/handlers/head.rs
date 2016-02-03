@@ -1,6 +1,14 @@
-pub struct HeadHandler;
+use hyper::server::{Request, Response};
+use hyper::status::StatusCode;
+use hyper::uri::RequestUri;
+use hyper::header::{CacheDirective, CacheControl};
 
-fn handle_head_method(request: Request, response: &mut Response) {
+use std::path::Path;
+use std::env;
+
+use headers::{UploadOffset, TusResumable};
+
+pub fn handle_head_method(request: Request, response: &mut Response) {
     let uri = match request.uri {
         RequestUri::AbsolutePath(uri) => uri,
         _ => {
@@ -12,12 +20,12 @@ fn handle_head_method(request: Request, response: &mut Response) {
     let file_name = match Path::new(&uri).file_name() {
         Some(file_name) => file_name,
         None => {
-            *response.status_mut() = StatusCode::NotFound;
+            *response.status_mut() = StatusCode::Forbidden;
             return;
         }
     };
 
-    let mut file_path = PathBuf::from("/home/rio");
+    let mut file_path = env::temp_dir();
     file_path.push(file_name);
 
     if file_path.is_file() {
@@ -32,4 +40,3 @@ fn handle_head_method(request: Request, response: &mut Response) {
     response.headers_mut().set(TusResumable::new());
     response.headers_mut().set(CacheControl(vec![CacheDirective::NoStore]))
 }
-
