@@ -28,6 +28,6 @@ Protocol:
  - [ ] Implement [Concatenation](http://tus.io/protocols/resumable-upload.html#concatenation) Extension
 
 Binaries:
- - [ ] Implement basic server
+ - [x] Implement basic server
  - [ ] Implement basic commandline client
  - [ ] Implement pluggable backend protocols for server starting with [ZeroMQ](http://zeromq.org)
