@@ -4,6 +4,17 @@
 
 Rust implementation of the tus resumable upload protocol. http://tus.io
 
+## Build
+
+`cargo build --release`
+
+## Test
+
+Currently testing is just starting a server and running the tests.  
+Ideally the tests should start the server or mimic a server.
+
+`cargo run` and in a different terminal `cargo test`.
+
 ## TODO
 Protocol:
  - [ ] Implement [Core](http://tus.io/protocols/resumable-upload.html#core-protocol) Protocol
