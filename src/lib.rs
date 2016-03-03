@@ -33,7 +33,7 @@ pub fn tus_handler(request: Request, mut response: Response) {
             // Method::Patch => handle_patch_method(request, &mut response),
             // Method::Options => handle_options_method(&mut response),
             Method::Patch => println!("patch"),
-            Method::Options => println!("options"),
+            Method::Options => handlers::handle_options_method(&mut response),
             _ => (),
         }
     }

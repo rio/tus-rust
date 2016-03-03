@@ -32,7 +32,7 @@ impl HeaderFormat for TusResumable {
 
 #[derive(Clone, Debug)]
 pub struct TusVersion {
-    versions: Vec<String>,
+    pub versions: Vec<String>,
 }
 
 impl TusVersion {
