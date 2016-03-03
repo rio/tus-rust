@@ -12,8 +12,10 @@ fn bad_version_good_method_return_412() {
     headers.set_raw("Tus-Resumable", vec![b"1.0.1".to_vec()]);
 
     let response = client.head("http://localhost:4000").headers(headers).send().unwrap();
+    let raw_tus_version = response.headers.get_raw("Tus-Version").unwrap();
 
-    assert_eq!(response.status, StatusCode::PreconditionFailed)
+    assert_eq!(response.status, StatusCode::PreconditionFailed);
+    assert_eq!(raw_tus_version, &[b"1.0.0"])
 }
 
 #[test]
