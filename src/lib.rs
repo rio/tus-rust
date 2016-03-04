@@ -30,9 +30,7 @@ pub fn tus_handler(request: Request, mut response: Response) {
         // handle the method
         match request.method {
             Method::Head => handlers::handle_head_method(request, &mut response),
-            // Method::Patch => handle_patch_method(request, &mut response),
-            // Method::Options => handle_options_method(&mut response),
-            Method::Patch => println!("patch"),
+            Method::Patch => handlers::handle_patch_method(request, &mut response),
             Method::Options => handlers::handle_options_method(&mut response),
             _ => (),
         }
