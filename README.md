@@ -17,9 +17,9 @@ Ideally the tests should start the server or mimic a server.
 
 ## TODO
 Protocol:
- - [ ] Implement [Core](http://tus.io/protocols/resumable-upload.html#core-protocol) Protocol
+ - [x] Implement [Core](http://tus.io/protocols/resumable-upload.html#core-protocol) Protocol
   - [x] Head
-  - [ ] Patch
+  - [x] Patch
   - [x] Options
  - [ ] Implement [Creation](http://tus.io/protocols/resumable-upload.html#creation) Extension
  - [ ] Implement [Expiration](http://tus.io/protocols/resumable-upload.html#expiration) Extension
