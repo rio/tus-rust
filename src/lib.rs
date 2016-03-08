@@ -10,7 +10,7 @@ mod utils;
 mod handlers;
 pub mod headers;
 
-pub fn tus_handler(request: Request, mut response: Response) {
+pub fn tus_handler(mut request: Request, mut response: Response) {
     let log_string = format!("{remote_addr} | {version} | {method:<7} | {uri}",
                              remote_addr = request.remote_addr,
                              version = request.version,
@@ -30,7 +30,7 @@ pub fn tus_handler(request: Request, mut response: Response) {
         // handle the method
         match request.method {
             Method::Head => handlers::handle_head_method(request, &mut response),
-            Method::Patch => handlers::handle_patch_method(request, &mut response),
+            Method::Patch => handlers::handle_patch_method(&mut request, &mut response),
             Method::Options => handlers::handle_options_method(&mut response),
             _ => (),
         }
