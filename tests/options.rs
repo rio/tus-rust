@@ -15,9 +15,9 @@ fn return_204() {
     headers.set_raw("Tus-Resumable", vec![b"1.0.0".to_vec()]);
 
     let response = client.request(Method::Options, "http://localhost:4000/")
-                         .headers(headers)
-                         .send()
-                         .unwrap();
+        .headers(headers)
+        .send()
+        .unwrap();
 
     let tus_version = response.headers.get::<TusVersion>().unwrap();
 

@@ -1,5 +1,9 @@
+extern crate tus;
+extern crate hyper;
+
 use std::fs;
 use std::env;
+use std::process::{Command, Child};
 
 pub fn create_temp_file(name: &str, size: u64) {
     let mut temp_file_path = env::temp_dir();
@@ -14,4 +18,8 @@ pub fn remove_temp_file(name: &str) {
     temp_file_path.push(name);
 
     fs::remove_file(temp_file_path).unwrap()
+}
+
+pub fn spawn_server() -> Child {
+    Command::new("cargo").arg("run").spawn().unwrap()
 }

@@ -5,6 +5,9 @@ use hyper::Client;
 use hyper::status::StatusCode;
 use hyper::header::Headers;
 
+#[cfg(test)]
+mod common;
+
 #[test]
 fn bad_version_good_method_return_412() {
     let client = Client::new();

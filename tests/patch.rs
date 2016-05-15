@@ -7,6 +7,7 @@ use hyper::header::Headers;
 
 use tus::headers::UploadOffset;
 
+#[cfg(test)]
 mod common;
 
 #[test]
