@@ -4,5 +4,5 @@ name = "tus"
 version = "0.1.0"
 
 [dependencies]
-clap = "2.0.1"
-hyper = "0.7.2"
+clap = "2.5.1"
+hyper = "0.9.4"
